@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+
+
+</head>
+<body>
+<div class="calculator flex flex-col items-center justify-center gap-4">
+    <div id="display">
+        <input type="text" id="result" class="border border-gray-300 px-4 py-2 rounded-md" />
+    </div>
+    <div id="button" class="flex flex-col">
+
+        <div class="rowone grid grid-cols-7 gap-4">
+            <button class="buttons col-span-2 w-full" id="clear">Clear</button>
+            <button class="buttons" id="underroot">&radic;</button>
+            <button class="buttons" id="bracket">()</button>
+            <button class="buttons" id="percent">%</button>
+            <button class="buttons" id="divide">/</button>
+            <button class="buttons" id="backspace">&#9003;</button>
+        </div>
+
+
+
+
+        <div class="rowtwo grid grid-cols-7 gap-4 mt-4">
+            <button class="buttons" id="sin">Sin</button>
+            <button class="buttons" id="cos">Cos</button>
+            <button class="buttons" id="tan">Tan</button>
+            <button class="buttons number" id="seven">7</button>
+            <button class="buttons number" id="eight">8</button>
+            <button class="buttons number" id="nine">9</button>
+            <button class="buttons" id="multiply">X</button>
+        </div>
+
+        <div class="rowthree grid grid-cols-7 gap-4 mt-4">
+            <button class="buttons" id="loge">ln</button>
+            <button class="buttons" id="log">log</button>
+            <button class="buttons" id="inverse">1/x</button>
+            <button class="buttons number" id="four">4</button>
+            <button class="buttons number" id="five">5</button>
+            <button class="buttons number" id="six">6</button>
+            <button class="buttons" id="subtract">-</button>
+        </div>
+
+        <div class="rowfour grid grid-cols-7 gap-4 mt-4">
+            <button class="buttons" id="exponent">e<sup>x</sup></button>
+            <button class="buttons" id="square">x<sup>2</sup></button>
+            <button class="buttons" id="xtoy">x<sup>y</sup></button>
+            <button class="buttons number" id="one">1</button>
+            <button class="buttons number" id="two">2</button>
+            <button class="buttons number" id="three">3</button>
+            <button class="buttons" id="plus">+</button>
+
+
+        </div>
+        <div class="rowfive grid grid-cols-7 gap-4 mt-4">
+            <button class="buttons" id="modx">|x|</button>
+            <button class="buttons" id="pi">&pi;</button>
+            <button class="buttons" id="e">e</button>
+            <button class="buttons" id="signreverse">+/-</button>
+            <button class="buttons number" id="zero">0</button>
+            <button class="buttons" id="decimal">.</button>
+            <button class="buttons" id="equals">=</button>
+        </div>
+
+    </div>
+
+</div>
+<script type="module" src="index.js"></script>
+
+</body>
+</html>
