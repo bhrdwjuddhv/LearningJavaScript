@@ -6,7 +6,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const tempdisplay = document.getElementById('temp');
     const weather  = document.getElementById('weather');
     const error = document.getElementById('error');
-    const Weather_API_Key = "";
+    const table = document.getElementById('weatherTableBody');
+    const addtotable = document.getElementById('addtotable');
+    const Weather_API_Key = "e4a704a205de7737b47b93ba826be138";
+    let tableArray = [];
+    let currentWeatherData = null;
+
     getWeatherBtn.addEventListener('click', async() => {
         let cityName = input.value.trim();
         //get data
@@ -29,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         tempdisplay.classList.add('hidden');
         weather.classList.add('hidden');
         cityname.classList.add('hidden');
+        addtotable.classList.add('hidden');
     }
     async function getData(cityName) {
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${Weather_API_Key}`;
@@ -41,6 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function displayData(Data) {
+        currentWeatherData = Data;
+
         const city = Data.name;
         const tempData = Data.main.temp;
         const weatherData = Data.weather[0].description;
@@ -48,12 +56,31 @@ document.addEventListener('DOMContentLoaded', () => {
         tempdisplay.classList.remove('hidden');
         weather.classList.remove('hidden');
         cityname.classList.remove('hidden');
+        addtotable.classList.remove('hidden');
+
         cityname.innerHTML = `${city}`;
         weather.innerHTML = `Weather: ${weatherData}`;
         tempdisplay.innerHTML = `Temperature: ${tempData}&deg;C`;
 
     }
 
+    addtotable.addEventListener('click', function () {
+        if (!currentWeatherData) return;
+
+        tableArray.push({
+            city: currentWeatherData.name,
+            temperature: currentWeatherData.main.temp,
+            weather: currentWeatherData.weather[0].description
+        });
+
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+        <td>${currentWeatherData.name}</td>
+        <td>${currentWeatherData.main.temp}°C</td>
+        <td>${currentWeatherData.weather[0].description}</td>
+    `;
+        table.appendChild(tr);
+    });
 
 
 

@@ -20,10 +20,26 @@
         <p class="text-2xl font-bold" id="cityname"></p>
         <p class="text-base font-normal" id="temp"></p>
         <p class="text-base font-normal" id="weather"></p>
+        <button id="addtotable" class="font-normal text-base bg-red-700 hidden">Add to table</button>
 
 
     </div>
+    <div class="mt-8 w-full max-w-lg">
+        <table class="w-full border border-gray-700 text-center rounded-lg overflow-hidden">
+            <thead class="bg-gray-800">
+            <tr>
+                <th class="px-4 py-2 border border-gray-700">City</th>
+                <th class="px-4 py-2 border border-gray-700">Temperature (°C)</th>
+                <th class="px-4 py-2 border border-gray-700">Weather</th>
+            </tr>
+            </thead>
+            <tbody id="weatherTableBody" class="bg-gray-900">
+
+            </tbody>
+        </table>
     </div>
+
+</div>
 <script src="script.js"></script>
 </body>
 </html>
