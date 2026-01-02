@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const error = document.getElementById('error');
     const table = document.getElementById('weatherTableBody');
     const addtotable = document.getElementById('addtotable');
-    const Weather_API_Key = "e4a704a205de7737b47b93ba826be138";
+    const Weather_API_Key = "";
     let tableArray = [];
     let currentWeatherData = null;
 
