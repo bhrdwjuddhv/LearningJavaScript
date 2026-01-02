@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check Weather Instantly</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body class="bg-neutral-900 text-white">
+<div class="flex flex-col items-center justify-center bg-gray-900 w-md h-screen">
+    <div class="weather flex gap-2 items-center justify-center py-2">
+
+            <label class="hidden">City</label>
+            <input type="text" class="weather-input h-10 w-auto text-black rounded-sm px-2" id="cityinput" placeholder="Enter City Name" />
+            <button class="bg-violet-900 h-10 w-65 hover:bg-violet-800 rounded-md px-5" id="getweather">Get Weather</button>
+
+    </div>
+    <div class="text-center">
+        <p class="text-2xl font-bold hidden" id="error">Error fetching data</p>
+        <p class="text-2xl font-bold" id="cityname"></p>
+        <p class="text-base font-normal" id="temp"></p>
+        <p class="text-base font-normal" id="weather"></p>
+
+
+    </div>
+    </div>
+<script src="script.js"></script>
+</body>
+</html>
