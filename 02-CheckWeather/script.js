@@ -9,8 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const table = document.getElementById('weatherTableBody');
     const addtotable = document.getElementById('addtotable');
     const Weather_API_Key = "";
-    let tableArray = [];
+    let tableArray = JSON.parse(localStorage.getItem('tableData')) || [];
+    tableArray.forEach(Data => renderTable(Data));
     let currentWeatherData = null;
+
 
     getWeatherBtn.addEventListener('click', async() => {
         let cityName = input.value.trim();
@@ -68,23 +70,51 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!currentWeatherData) return;
 
         tableArray.push({
+            id: Date.now(),
             city: currentWeatherData.name,
             temperature: currentWeatherData.main.temp,
             weather: currentWeatherData.weather[0].description
         });
+        saveData();
+        table.innerHTML = '';
+        tableArray.forEach(Data => renderTable(Data));
 
+
+
+
+
+    });
+
+
+
+    function saveData(){
+        localStorage.setItem('tableData', JSON.stringify(tableArray));
+    }
+
+    function renderTable(Data){
+            console.log(Data)
         const tr = document.createElement('tr');
+            tr.setAttribute('data-id', Data.id);
         tr.innerHTML = `
-        <td>${currentWeatherData.name}</td>
-        <td>${currentWeatherData.main.temp}°C</td>
-        <td>${currentWeatherData.weather[0].description}</td>
+        <td>${Data.city}</td>
+        <td>${Data.temperature}°C</td>
+        <td>${Data.weather}</td>
+        <td><button class = " delete-btn font-normal text-base bg-red-700 px-4 rounded-md my-2">Delete</button></td>
     `;
         table.appendChild(tr);
+    }
+    table.addEventListener('click', (e) => {
+        if (e.target.classList.contains('delete-btn')) {
+            const row = e.target.closest('tr');
+            row.remove();
+            tableArray = tableArray.filter(t => t.id !== Number(row.dataset.id));
+            saveData();
+        }
+
     });
 
 
 
 
 
-
-})
+    })

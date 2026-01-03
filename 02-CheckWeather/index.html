@@ -6,8 +6,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
-<body class="bg-neutral-900 text-white">
-<div class="flex flex-col items-center justify-center bg-gray-900 w-md h-screen">
+<body class="bg-neutral-900 text-white flex items-center justify-center min-h-screen">
+
+<div class="flex flex-col text-white items-center justify-center bg-gray-900
+            w-full max-w-xl px-10 rounded-md min-h-[400px]">
     <div class="weather flex gap-2 items-center justify-center py-2">
 
             <label class="hidden">City</label>
@@ -20,7 +22,7 @@
         <p class="text-2xl font-bold" id="cityname"></p>
         <p class="text-base font-normal" id="temp"></p>
         <p class="text-base font-normal" id="weather"></p>
-        <button id="addtotable" class="font-normal text-base bg-red-700 hidden">Add to table</button>
+        <button id="addtotable" class="font-normal text-base bg-red-700 px-4 rounded-md my-2 hidden">Add to table</button>
 
 
     </div>
@@ -31,6 +33,7 @@
                 <th class="px-4 py-2 border border-gray-700">City</th>
                 <th class="px-4 py-2 border border-gray-700">Temperature (°C)</th>
                 <th class="px-4 py-2 border border-gray-700">Weather</th>
+                <th class="px-4 py-2 border border-gray-700"></th>
             </tr>
             </thead>
             <tbody id="weatherTableBody" class="bg-gray-900">
